@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Super Bikes Catalog</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .bike-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 40px auto;
+    }
+
+    .bike-card {
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .bike-card:hover {
+      transform: scale(1.03);
+    }
+
+    .bike-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .bike-card .content {
+      padding: 15px;
+    }
+
+    .bike-card h2 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      color: #222;
+    }
+
+    .bike-card p {
+      margin: 5px 0;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🏍️ Super Bikes Catalog</h1>
+  <div class="bike-grid" id="bikeGrid"></div>
+
+  <script>
+    const bikes = [
+      {
+        name: "Yamaha YZF-R1",
+        image: "https://bikeimages.in/images/Yamaha-R1.jpg",
+        topSpeed: "299 km/h",
+        engine: "998cc"
+      },
+      {
+        name: "Kawasaki Ninja H2",
+        image: "https://bikeimages.in/images/Kawasaki-Ninja-H2.jpg",
+        topSpeed: "331 km/h",
+        engine: "998cc supercharged"
+      },
+      {
+        name: "Ducati Panigale V4",
+        image: "https://bikeimages.in/images/Ducati-Panigale-V4.jpg",
+        topSpeed: "300+ km/h",
+        engine: "1103cc V4"
+      },
+      {
+        name: "BMW S1000RR",
+        image: "https://bikeimages.in/images/BMW-S1000RR.jpg",
+        topSpeed: "305 km/h",
+        engine: "999cc inline-4"
+      },
+      {
+        name: "Suzuki Hayabusa",
+        image: "https://bikeimages.in/images/Suzuki-Hayabusa.jpg",
+        topSpeed: "299 km/h",
+        engine: "1340cc"
+      }
+    ];
+
+    const bikeGrid = document.getElementById('bikeGrid');
+
+    bikes.forEach(bike => {
+      const card = document.createElement('div');
+      card.className = 'bike-card';
+
+      card.innerHTML = `
+        <img src="${bike.image}" alt="${bike.name}">
+        <div class="content">
+          <h2>${bike.name}</h2>
+          <p><strong>Top Speed:</strong> ${bike.topSpeed}</p>
+          <p><strong>Engine:</strong> ${bike.engine}</p>
+        </div>
+      `;
+
+      bikeGrid.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
